@@ -1,0 +1,43 @@
+@import '~@/styles/index.scss';
+
+.wrapper {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 72px 16px;
+    width: 100%;
+
+    @media only screen and (max-width: 767px) {
+        padding: 32px 16px;
+    }
+}
+
+.wallets {
+    align-items: center;
+    background: rgba(5, 11, 46, 0.9) linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
+    bottom: 0;
+    column-gap: 20px;
+    display: flex;
+    padding: 12px 20px;
+    position: sticky;
+
+    @media only screen and (min-width: 768px) {
+        background: none;
+        bottom: unset;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

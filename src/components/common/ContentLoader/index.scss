@@ -1,0 +1,34 @@
+.content-loader {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    min-height: 450px;
+    width: 100%;
+
+    svg {
+        animation: rotate 1s linear infinite;
+        fill: #ffffff;
+    }
+
+    &_slim {
+        min-height: auto;
+        height: auto;
+    }
+
+    &_size {
+        &_s {
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &_l {
+            svg {
+                width: 46px;
+                height: 46px;
+            }
+        }
+    }
+}

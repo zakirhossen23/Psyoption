@@ -1,0 +1,41 @@
+.pair-page {
+    &__header {
+        align-items: flex-end;
+        column-gap: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 32px;
+    }
+
+    &__header-actions {
+        align-items: center;
+        column-gap: 16px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__token {
+        align-items: center;
+        column-gap: 10px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 8px;
+
+        &-name {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.25px;
+            line-height: 20px;
+        }
+    }
+
+    &__tokens-prices {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+    }
+}

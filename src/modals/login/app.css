@@ -1,0 +1,26 @@
+.modal-header {
+    color: black;
+    font-weight: 600;
+    font-size: large;
+    background: #ffffff !important;
+}
+.closebtn:hover {
+    background: black !important;
+}
+.modal-body-login {
+    padding: 3rem !important;
+    background-color: #fdfeff !important;
+}
+
+.whitebtn {
+      background-color: #ffffff !important;
+      width: 44%;
+}
+.whitebtn:hover {
+    background-color: #e1e7e5 !important;
+}
+
+.modal-content {
+    border-radius: 1rem !important;
+    overflow: hidden;
+}

@@ -1,0 +1,75 @@
+.builder {
+    header {
+        > * {
+            flex-grow: 1;
+        }
+    }
+
+    .filter {
+        flex-grow: 1;
+    }
+}
+
+.form-builder {
+    .form-fieldset {
+        height: 65px;
+    }
+
+    .form-input {
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+
+.manage-token {
+    .card-parts {
+        align-items: flex-start;
+        column-gap: 40px;
+        display: flex;
+        justify-content: space-between;
+
+        &__part {
+            flex-grow: 1;
+        }
+    }
+
+    .card-block {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        margin-bottom: 32px;
+        padding: 12px 16px;
+
+        &--alert {
+            border: 1px solid #eb4361;
+        }
+
+        &__title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        &__action {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+            &__name {
+                font-size: 1.6rem;
+                font-weight: bold;
+            }
+
+            &__description {
+                font-size: 1.4rem;
+                margin-top: 4px;
+            }
+        }
+
+        &__action:not(:last-child) {
+            margin-bottom: 28px;
+        }
+    }
+}
+
+.builder-address-field {
+    cursor: pointer;
+}
