@@ -14,28 +14,8 @@ export function Footer(): JSX.Element {
     const intl = useIntl()
     const wallet = useWallet()
 
-    const toolbar = (
-        <div className="toolbar">
-            <Observer>
-                {() => (
-                    <>
-                        {(!wallet.isInitialized && !wallet.isInitializing) && (
-                            <a
-                                href="https://chrome.google.com/webstore/detail/ton-crystal-wallet/cgeeodpfagjceefieflmdfphplkenlfk"
-                                className="btn btn--xl btn-tertiary footer-tool"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {intl.formatMessage({
-                                    id: 'WALLET_INSTALLATION_LINK_TEXT',
-                                })}
-                            </a>
-                        )}
-                    </>
-                )}
-            </Observer>
-
-        </div>
+    const toolbar = (<>
+      </>
     )
 
     return (

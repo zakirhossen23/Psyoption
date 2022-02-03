@@ -158,18 +158,18 @@ export default function CreateEvents() {
                             {EventDateInput}
                         </div>
                         <div style={{ margin: "18px 0" }}>
-                            <h4 style={{marginBottom:"10px"}}>EVER Wallet Type</h4>
+                            <h4 style={{marginBottom:"10px"}}>Wallet Type</h4>
                             {EventWalletTypeInput}
                         </div>
                         <div style={{ margin: "18px 0" }}>
-                            <h4 style={{marginBottom:"10px"}}>EVER Wallet Address</h4>
+                            <h4 style={{marginBottom:"10px"}}>Wallet Address in {EventWalletType}</h4>
                             {EventWalletAddressInput}
                         </div>
                         <div style={{ margin: "18px 0" }}>
-                            <h4 style={{marginBottom:"10px"}}>Event Goal</h4>
+                            <h4 style={{marginBottom:"10px"}}>Event Goal in {EventWalletType}</h4>
                             <Form.Control
                                 value={EventGoal}
-                                placeholder={"Event Goal in EVER"}
+                                placeholder={`Event Goal in ${EventWalletType}`}
                                 onChange={(e) => eventGoalChanged(e.target.value)}
                                 type={"number"}
                                 id={"goal"}
