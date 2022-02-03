@@ -80,7 +80,7 @@ export default function CreateEvents() {
     const [EventWalletAddressGoal, EventWalletAddressInput] = UseFormInput({
         defaultValue: "",
         type: 'text',
-        placeholder: 'Ever Wallet Address',
+        placeholder: 'Wallet Address',
         id: 'wallet',
     });
     const [EventGoal, setEventGoal ] = useState(0);
