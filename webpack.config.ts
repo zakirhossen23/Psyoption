@@ -82,7 +82,8 @@ export default (_: any, options: any): WebpackConfig => {
             favicon: 'public/favicon.svg',
             filename: path.resolve(__dirname, 'dist/index.html'),
             template: 'public/index.html'
-        }), new HtmlWebpackPlugin({
+        })
+        , new HtmlWebpackPlugin({
             title: 'PsyGift',
             favicon: 'public/favicon.ico',
             filename: path.resolve(__dirname, 'dist/index.html'),
@@ -108,7 +109,8 @@ export default (_: any, options: any): WebpackConfig => {
             title: 'PsyGift - Auction',
             filename: path.resolve(__dirname, 'dist/donation/auction/index.html'),
             template: 'public/index.html'
-        }),
+        })
+        ,
       
         new webpack.ProvidePlugin({
             process: "process"
