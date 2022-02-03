@@ -4,8 +4,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import path from 'path'
 import webpack from 'webpack'
 import { Configuration as DevServerConfiguration } from 'webpack-dev-server'
-
-
 type WebpackConfig = webpack.Configuration & { devServer?: DevServerConfiguration }
 
 
@@ -116,6 +114,7 @@ export default (_: any, options: any): WebpackConfig => {
             template: 'public/index.html',
             inject: false,
         }),
+      
         new webpack.ProvidePlugin({
             process: "process"
         }),
@@ -233,6 +232,7 @@ export default (_: any, options: any): WebpackConfig => {
             crypto: require.resolve('crypto-browserify'),
             stream: require.resolve('stream-browserify'),
             buffer: require.resolve('buffer'),
+        
         }
     }
 

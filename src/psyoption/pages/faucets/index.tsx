@@ -67,19 +67,19 @@ const Faucets: React.VFC = () => {
   const BTC = useMemo(() => {
     return {
       ...(assets.find((a) => a.tokenSymbol === 'BTC') || {}),
-      faucetAddress: process.env.REACT_APP_DEVNET_FAUCET_BTC,
+      faucetAddress: "97z3NzcDxqRMyE7F73PuHEmAbA72S7eDopjhe7GTymTk",
     };
   }, [assets]);
   const PSY = useMemo(() => {
     return {
       ...(assets.find((a) => a.tokenSymbol === 'PSY') || {}),
-      faucetAddress: process.env.REACT_APP_DEVNET_FAUCET_PSY,
+      faucetAddress: "7jJJnHWagPPG544FtxSVp8eD52FwCsARcqqup1q3XVio",
     };
   }, [assets]);
   const USDC = useMemo(() => {
     return {
       ...(assets.find((a) => a.tokenSymbol === 'USDC') || {}),
-      faucetAddress: process.env.REACT_APP_DEVNET_FAUCET_USDC,
+      faucetAddress: "E6wQSMPGqHn7dqEMeWcSVfjdkwd8ED5CncQ9BtMNGtUG",
     };
   }, [assets]);
 

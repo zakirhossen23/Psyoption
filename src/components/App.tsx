@@ -32,8 +32,9 @@ import Home from '@/pages/Home'
 import CreateEvents from '@/pages/CreateEvents'
 import Donation from '@/pages/donation'
 import Auction from '@/pages/donation/auction'
-import Psyoption from '@/psyoption/pages/mint/mint'
+import Psyoption from '@/psyoption/pages/initialize-market/init'
 import './App.scss'
+import * as serviceWorker from "./serviceWorker";
 
 
 export function App(): JSX.Element {
@@ -121,4 +122,8 @@ export function App(): JSX.Element {
             </Router>
         </IntlProvider>
     )
+
+
+    serviceWorker.unregister();
+
 }

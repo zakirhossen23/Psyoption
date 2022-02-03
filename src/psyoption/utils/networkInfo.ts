@@ -41,7 +41,7 @@ const networks: Network[] = [
     url: 'https://psytrbhymqlkfrhudd.dev.genesysgo.net:8899',
     fallbackUrl: clusterApiUrl('devnet'),
     wsEndpoint: 'wss://psytrbhymqlkfrhudd.dev.genesysgo.net:8900',
-    programId: process.env.REACT_APP_DEVNET_PROGRAM_ID,
+    programId: "R2y9ip6mxmWUj4pt54jP2hz2dgvMozy9VTSwMWE7evs",
     serumReferrerIds: {
       E6Z6zLzk8MWY3TY8E87mr88FhGowEPJTeMWzkqtL6qkF: new PublicKey(
         '4wpxNqqAqLtZscg1VZWnnBTQnzJSc42HtSitjpLfm3jz',
@@ -59,7 +59,7 @@ const networks: Network[] = [
     name: ClusterName.localhost,
     url: 'http://127.0.0.1:8899',
     fallbackUrl: 'http://127.0.0.1:8899',
-    programId: process.env.REACT_APP_LOCAL_PROGRAM_ID,
+    programId: "R2y9ip6mxmWUj4pt54jP2hz2dgvMozy9VTSwMWE7evs",
     serumReferrerIds: {},
   },
 ];
@@ -100,7 +100,7 @@ const getDexProgramKeyByNetwork = (name: ClusterName) => {
       // TODO Don't rely on the markets for this
       return MARKETS.find(({ deprecated }) => !deprecated)?.programId;
     case 'Devnet':
-      return new PublicKey(process.env.REACT_APP_DEVNET_DEX_PROGRAM_ID ?? '');
+      return new PublicKey("DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY" ?? '');
     case 'Testnet':
       // NOTE THIS WILL NOT WORK BECUASE THERE IS NO SERUM DEX DEPLOYED TO TESTNET
       return new PublicKey(process.env.REACT_APP_TESTNET_DEX_PROGRAM_ID ?? '');
@@ -110,7 +110,7 @@ const getDexProgramKeyByNetwork = (name: ClusterName) => {
       // const serumDexKeyBuffer = fs.readFileSync(ScriptHelpers.serumDexProgramKeypair);
       // const dexProgramAccount = new Account(JSON.parse(serumDexKeyBuffer));
       // const dexProgramId = dexProgramAccount.publicKey;
-      return new PublicKey(process.env.REACT_APP_LOCAL_DEX_PROGRAM_ID ?? '');
+      return new PublicKey("9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin" ?? '');
     default:
       return undefined;
   }
@@ -186,14 +186,14 @@ const getAssetsByNetwork = (name: ClusterName): Token[] => {
     case ClusterName.testnet:
       return MarketMeta.testnet.tokens;
     case ClusterName.localhost:
-      try {
-        /* eslint-disable */
-        const localnetData = require('../../tmp/localnetData.json');
-        return [TOKENS.mainnet[0], ...localnetData];
-      } catch (err) {
-        console.error('localnet data not found at ../../tmp/localnetData.json');
-        return [];
-      }
+      // try {
+      //   /* eslint-disable */
+      //   const localnetData = require('../../tmp/localnetData.json');
+      //   return [TOKENS.mainnet[0], ...localnetData];
+      // } catch (err) {
+      //   console.error('localnet data not found at ../../tmp/localnetData.json');
+      //   return [];
+      // }
     default:
       return [];
   }
