@@ -81,38 +81,33 @@ export default (_: any, options: any): WebpackConfig => {
             title: 'PsyGift',
             favicon: 'public/favicon.svg',
             filename: path.resolve(__dirname, 'dist/index.html'),
-            template: 'public/index.html',
-            inject: false,
+            template: 'public/index.html'
         }), new HtmlWebpackPlugin({
             title: 'PsyGift',
             favicon: 'public/favicon.ico',
             filename: path.resolve(__dirname, 'dist/index.html'),
-            template: 'public/index.html',
-            inject: false,
+            template: 'public/index.html'
         })
         , new HtmlWebpackPlugin({
             title: 'PsyGift - Donation',
             filename: path.resolve(__dirname, 'dist/donation/index.html'),
-            template: 'public/index.html',
-            inject: false,
+            template: 'public/index.html'
         })
         , new HtmlWebpackPlugin({
             title: 'PsyGift - Swap',
             filename: path.resolve(__dirname, 'dist/swap/index.html'),
-            template: 'public/index.html',
-            inject: false,
+            template: 'public/index.html'
         })
         , new HtmlWebpackPlugin({
             title: 'PsyGift - Swap',
             filename: path.resolve(__dirname, 'dist/EVERswap/index.html'),
-            template: 'public/index.html',
-            inject: false,
+            template: 'public/index.html'
+
         })
         , new HtmlWebpackPlugin({
             title: 'PsyGift - Auction',
             filename: path.resolve(__dirname, 'dist/donation/auction/index.html'),
-            template: 'public/index.html',
-            inject: false,
+            template: 'public/index.html'
         }),
       
         new webpack.ProvidePlugin({
