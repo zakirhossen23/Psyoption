@@ -9,7 +9,7 @@ import { useCreateTokenStore } from '@/modules/Builder/stores/CreateTokenStore'
 import { useWallet } from '@/stores/WalletService'
 import { createBid,ReduceCategory } from '@/pages/Events/token'
 import { Icon } from '@/components/common/Icon'
-import { getCategoriesbyeventid} from '../../../pages/Events/event'
+import { getCategoriesbyeventid,eventgetbyid} from '../../../pages/Events/event'
 
 import {
 	CreateTxFailed,
@@ -33,7 +33,7 @@ export default function BidNFTModal({
 	type,
 	Highestbid,
 	walletType,
-	eventId
+	eventId,
 }) {
 	const [Alert, setAlert] = useState('');
 	const [Amount, AmountInput] = UseFormInput({
@@ -49,6 +49,7 @@ export default function BidNFTModal({
 	const { connect, status ,availableConnections} = useWalletTerra()
 	const connectedWallet = useConnectedWallet();
 	const [txError, setTxError] = React.useState("");
+	const [otherCategory,setOtherCategory] = useState(-1);
 
 	function activateWarningModal() {
 		var alertELM = document.getElementById("alert");
@@ -56,24 +57,34 @@ export default function BidNFTModal({
 		setAlert(`Amount cannot be under ${Highestbid} ${walletType}`)
 	}
 
-async function fetchCategroies(){
-	var boolTrue = true;
+	useEffect(async () => {
+		const boolTrue = true;
 		while (boolTrue) {
 			try {
 				const categories = await getCategoriesbyeventid(eventId);
 				console.log("categories for event:");
 				console.log(categories);
-				setCategories(categories);
+				let event = await eventgetbyid(eventId);
+				var goal = event.Goal;
+				console.log("goal:");
+				console.log(goal)
+;
+				var sumofmain = 0;
+				var categories_ = categories;
+				for(var i=0;i<categories_.length;i++){
+					sumofmain += categories_[i].price*categories_[i].amount;
+				}
+				
+				setOtherCategory(goal-sumofmain);
+				setCategories(categories_);
 				break;
 			}catch(error){
 				continue;
 			}
+			
 		}
-}
-useEffect(() => {
-	fetchCategroies();
-
-}, []);
+		
+    }, [categories]);
 	async function bidNFT() {
 		if (Number(Amount) < Number(Highestbid)) {
 			activateWarningModal();
@@ -135,15 +146,9 @@ useEffect(() => {
 			})
 			.then(() => {
 				console.log("test1");
-				
-
 				console.log(`given ${Amount} highest => ${Highestbid}`)
-
-				
 			}).then(async ()=>{
 				await createBid(tokenId, connectedWallet.walletAddress, Amount);
-				
-
 			}).then(()=>{
 				window.location.reload();
 				window.document.getElementsByClassName("btn-close")[0].click();
@@ -237,9 +242,6 @@ useEffect(() => {
 			});
 		}
 		
-		
-		
-		
 	}
 	const [categories, setCategories] = useState([]);
 	const [selectCoinTypeModal, setSelectCoinTypeModal] = useState(false);
@@ -252,10 +254,19 @@ useEffect(() => {
 	}
 
 	const [allSelected, setAllSelected] = useState(false);
+	const [otherSelected, setOtherSelected] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState([]);
+
 	const selectCategory = (category_id) =>{
-		var temp_arr = selectedCategory;
+		console.log("category_id");
+		console.log(category_id);
+		var temp_arr = [];
+		for(var i=0; i<selectedCategory.length;i++){
+			temp_arr.push(selectedCategory[i]);
+		}
 		temp_arr.push(category_id);
+		console.log(temp_arr);
+
 		setSelectedCategory(temp_arr);
 	}
 	const unselectCategory = (category_id) =>{
@@ -264,6 +275,7 @@ useEffect(() => {
 			if(selectedCategory[i]!=category_id)
 				temp_arr.push(selectedCategory[i]);
 		}
+		console.log(temp_arr);
 		setSelectedCategory(temp_arr);
 	}
 
@@ -278,9 +290,29 @@ useEffect(() => {
 			for(var i=0;i<categories.length;i++){
 				temp_arr.push(categories[i].id)
 			}
+			temp_arr.push(-1);
 			setSelectedCategory(temp_arr);
 		}
 			
+	}
+	const otherSelect=()=>{
+		if(otherSelected){
+			setOtherSelected(false);
+			var temp_arr = [];
+			for(var i=0;i<selectedCategory.length;i++){
+				if(selectedCategory[i].id != -1)
+					temp_arr.push(selectedCategory[i].id)
+			}
+			setSelectedCategory(temp_arr);
+		}else{
+			setOtherSelected(true);
+			var temp_arr = [];
+			for(var i=0;i<selectedCategory.length;i++){
+				temp_arr.push(selectedCategory[i].id)
+			}
+			temp_arr.push(-1);
+			setSelectedCategory(temp_arr);
+		}	
 	}
 	return (
 		<>
@@ -348,16 +380,17 @@ useEffect(() => {
 					<div className='selectCategory' style={{marginLeft:"-10px", marginRight:"-10px", display:"flex", flexDirection:"row",flexWrap:"wrap"}}>
 						{
 							categories.map((category)=>(
-								<div style={{width:"33%",padding:"0 10px", marginBottom:"10px"}} key={category.id}>
+								(selectedCategory.indexOf(-1) !==-1 || selectedCategory.indexOf(category.id) !== -1)?
+								(<div style={{width:"33%",padding:"0 10px", marginBottom:"10px"}} key={category.id} onClick={()=>unselectCategory(category.id)}>
 									<div style={{background:"white", padding: "8px 15px",border:"1px solid transparent", borderRadius:"5px",alignItems:"center",}}>
 										<h4 style={{marginBottom:"10px", color:"#151F28", textAlign:"center"}}>{category.title}</h4>
 										<img src={category.image} style={{width:"100%", borderRadius:"5px", height:"94px"}}/>
 										<h5 style={{ color:"#151F28",textAlign:"center",marginTop:"10px", lineHeight:"14px"}}>{category.amount * category.price} USD</h5>
 										<h5 style={{ color:"#151F28",textAlign:"center",lineHeight:"14px"}}>({category.amount} pieces)</h5>
-										{
-											(selectedCategory.find(category.id)!="undefined")?
-											(
-												<div style={{display:"flex", justifyContent:"flex-end"}} onClick={()=>selectCategory(category.id)}>
+										
+											
+											
+												<div style={{display:"flex", justifyContent:"flex-end"}}  >
 													<div style={{
 														marginTop:"10px",
 														display:"flex",
@@ -368,11 +401,27 @@ useEffect(() => {
 														alignItems:"center",
 														borderRadius:"16px",
 														background:"#EEF1F4"
+														
 													}}><Icon icon="heartSelected" /></div>
 												</div>
-											):
-											(
-												<div style={{display:"flex", justifyContent:"flex-end"}} onClick={()=>unselectCategory(category.id)}>
+												
+											
+											
+											
+										
+										
+									</div>
+								</div>)
+								:
+								(<div style={{width:"33%",padding:"0 10px", marginBottom:"10px"}} key={category.id} onClick={()=>selectCategory(category.id)}>
+									<div style={{background:"white", padding: "8px 15px",border:"1px solid transparent", borderRadius:"5px",alignItems:"center",}}>
+										<h4 style={{marginBottom:"10px", color:"#151F28", textAlign:"center"}}>{category.title}</h4>
+										<img src={category.image} style={{width:"100%", borderRadius:"5px", height:"94px"}}/>
+										<h5 style={{ color:"#151F28",textAlign:"center",marginTop:"10px", lineHeight:"14px"}}>{category.amount * category.price} USD</h5>
+										<h5 style={{ color:"#151F28",textAlign:"center",lineHeight:"14px"}}>({category.amount} pieces)</h5>
+										
+											
+												<div style={{display:"flex", justifyContent:"flex-end"}} >
 													<div style={{
 														marginTop:"10px",
 														display:"flex",
@@ -385,14 +434,58 @@ useEffect(() => {
 														background:"#EEF1F4"
 													}}><Icon icon="heartUnselected" /></div>
 												</div>
-											)
-										}
+											
+										
 										
 									</div>
-								</div>
+								</div>)
+
 							))
 						}
-						
+						<div style={{width:"33%",padding:"0 10px",display:"flex",flexDirection:"column"}} onClick={()=>otherSelect()}>
+							{
+								(categories.length>0)?
+								(<div style={{background:"white", padding: "10px",border:"1px solid transparent", borderRadius:"5px",alignItems:"center", marginBottom:"15px"}}>
+									<h4 style={{marginBottom:"10px", color:"#151F28", textAlign:"center"}}>Other support</h4>
+									<h5 style={{ color:"#151F28",textAlign:"center",marginTop:"10px", lineHeight:"14px"}}>{
+										otherCategory
+									} USD</h5>
+									{
+									(selectedCategory.indexOf(-1) !== -1)?(
+									<div style={{display:"flex", justifyContent:"flex-end"}} >
+										<div style={{
+											marginTop:"10px",
+											display:"flex",
+											width:"32px",
+											height:"32px",
+											justifyContent:"center",
+											flexDirection:"column",
+											alignItems:"center",
+											borderRadius:"16px",
+											background:"#EEF1F4"
+											
+										}}><Icon icon="heartSelected" /></div>
+									</div>):(
+									<div style={{display:"flex", justifyContent:"flex-end"}} >
+										<div style={{
+											marginTop:"10px",
+											display:"flex",
+											width:"32px",
+											height:"32px",
+											justifyContent:"center",
+											flexDirection:"column",
+											alignItems:"center",
+											borderRadius:"16px",
+											background:"#EEF1F4"
+											
+										}}><Icon icon="heartUnselected" /></div>
+									</div>
+									)
+								}
+								</div>):null
+							}
+							
+						</div>
 					</div>
 					<div className="d-grid">
 

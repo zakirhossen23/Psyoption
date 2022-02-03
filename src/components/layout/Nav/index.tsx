@@ -21,9 +21,9 @@ export function Nav(): JSX.Element {
                     </NavLink>
                 </li>
                 <li>
-                    <a href="/psyoption">
+                    <NavLink to="/psyoption">
                         PsyOptions
-                    </a>
+                    </NavLink>
                 </li>
                 <li>
                     <NavLink to="/tokens">
