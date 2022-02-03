@@ -57,7 +57,7 @@ export function Nav(): JSX.Element {
                 variant="outlined"
                 onClick={() => (setModalShow(true))}
                 style={{
-                    position: 'fixed',
+                    position: 'absolute',
                     right: '24px',
                     top: '24px',
                     fontSize: '13px',

@@ -55,8 +55,9 @@ export default function BidNFTModal({
 		alertELM.style = 'contents';
 		setAlert(`Amount cannot be under ${Highestbid} ${walletType}`)
 	}
-	useEffect(async () => {
-		var boolTrue = true;
+
+async function fetchCategroies(){
+	var boolTrue = true;
 		while (boolTrue) {
 			try {
 				const categories = await getCategoriesbyeventid(eventId);
@@ -68,7 +69,11 @@ export default function BidNFTModal({
 				continue;
 			}
 		}
-    }, []);
+}
+useEffect(() => {
+	fetchCategroies();
+
+}, []);
 	async function bidNFT() {
 		if (Number(Amount) < Number(Highestbid)) {
 			activateWarningModal();

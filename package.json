@@ -10,12 +10,11 @@
         "react-error-overlay": "6.0.9"
     },
     "scripts": {
-        "start": "npx webpack serve --mode production --config webpack.config.ts",
-        "build": "npx webpack --mode production --config webpack.config.ts",
+        "start": "npx webpack serve --mode development --config webpack.config.ts",
+        "build": "npx webpack --mode development --config webpack.config.ts",
         "dev": "npx webpack serve --mode development --config webpack.config.ts",
         "watch": "npx webpack --watch",
-        "lint": "npx eslint src --ext js,jsx,ts,tsx",
-        "webpack": "webpack" 
+        "lint": "npx eslint src --ext js,jsx,ts,tsx"
     },
     "dependencies": {
         "@babel/plugin-syntax-jsx": "^7.14.5",
