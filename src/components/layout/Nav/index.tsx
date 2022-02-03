@@ -52,12 +52,12 @@ export function Nav(): JSX.Element {
                 </li>
               
             </ul>
-            {window.location.pathname=="/psyoption"?(<></>):(
+            {window.location.pathname.includes("psyoption")?(<></>):(
    <Button
                 variant="outlined"
                 onClick={() => (setModalShow(true))}
                 style={{
-                    position: 'absolute',
+                    position: 'fixed',
                     right: '24px',
                     top: '24px',
                     fontSize: '13px',
