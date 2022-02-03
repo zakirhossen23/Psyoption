@@ -67,8 +67,7 @@ export default function BidNFTModal({
 				let event = await eventgetbyid(eventId);
 				var goal = event.Goal;
 				console.log("goal:");
-				console.log(goal)
-;
+				console.log(goal);
 				var sumofmain = 0;
 				var categories_ = categories;
 				for(var i=0;i<categories_.length;i++){
@@ -300,15 +299,15 @@ export default function BidNFTModal({
 			setOtherSelected(false);
 			var temp_arr = [];
 			for(var i=0;i<selectedCategory.length;i++){
-				if(selectedCategory[i].id != -1)
-					temp_arr.push(selectedCategory[i].id)
+				if(selectedCategory[i] != -1)
+					temp_arr.push(selectedCategory[i])
 			}
 			setSelectedCategory(temp_arr);
 		}else{
 			setOtherSelected(true);
 			var temp_arr = [];
 			for(var i=0;i<selectedCategory.length;i++){
-				temp_arr.push(selectedCategory[i].id)
+				temp_arr.push(selectedCategory[i])
 			}
 			temp_arr.push(-1);
 			setSelectedCategory(temp_arr);
@@ -380,7 +379,7 @@ export default function BidNFTModal({
 					<div className='selectCategory' style={{marginLeft:"-10px", marginRight:"-10px", display:"flex", flexDirection:"row",flexWrap:"wrap"}}>
 						{
 							categories.map((category)=>(
-								(selectedCategory.indexOf(-1) !==-1 || selectedCategory.indexOf(category.id) !== -1)?
+								(selectedCategory.indexOf(category.id) !== -1)?
 								(<div style={{width:"33%",padding:"0 10px", marginBottom:"10px"}} key={category.id} onClick={()=>unselectCategory(category.id)}>
 									<div style={{background:"white", padding: "8px 15px",border:"1px solid transparent", borderRadius:"5px",alignItems:"center",}}>
 										<h4 style={{marginBottom:"10px", color:"#151F28", textAlign:"center"}}>{category.title}</h4>
@@ -451,7 +450,7 @@ export default function BidNFTModal({
 										otherCategory
 									} USD</h5>
 									{
-									(selectedCategory.indexOf(-1) !== -1)?(
+									(selectedCategory.indexOf(-1)!==-1)?(
 									<div style={{display:"flex", justifyContent:"flex-end"}} >
 										<div style={{
 											marginTop:"10px",
