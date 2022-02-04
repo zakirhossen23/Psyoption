@@ -93,7 +93,7 @@ const [showText, setShowText]=useState('');
             </Box>
             {showText !="" ? (
               <Box mx={2}>
-                <h2 style={{ color: theme.palette.error.main, fontSize:"4vw" }}>
+                <h2 style={{ color: theme.palette.error.main, fontSize:"2vw" }}>
                   {showText}
                 </h2>
               </Box>
