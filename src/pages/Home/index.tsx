@@ -23,9 +23,9 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="row">
-				<div style={{ 'width': '690px' ,fontSize: '1.5vw'}} className="col">
+				<div style={{ 'width': '690px'}} className="col">
 					<div className="text-center">
-						<h4>PsyGift uses the power of the Solana infrastructure to create the most easy, transparent, fun and digital charity auction on the web!</h4>
+						<h4 style={{ fontSize: '1.5vw'}}>PsyGift uses the power of the Solana infrastructure to create the most easy, transparent, fun and digital charity auction on the web!</h4>
 					</div>
 				</div>
 			</div>
