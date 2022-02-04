@@ -7,6 +7,7 @@ import {
   OptionMarketWithKey,
 } from '@mithraic-labs/psy-american';
 import Button from '@material-ui/core/Button';
+
 import { PublicKey } from '@solana/web3.js';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useAmericanPsyOptionsProgram } from '../../hooks/useAmericanPsyOptionsProgram';
@@ -17,7 +18,7 @@ import GokiButton from '../../components/GokiButton';
 import theme from '../../utils/theme';
 import { useMintOptions } from '../../hooks/PsyOptionsAPI/useMintOptions';
 import { MintInfo } from '../../components/Mint/MintInfo';
-import { MintParamInput } from '../../components/Mint/MintParamInput';
+import MintParamInput  from '../../components/Mint/MintParamInput';
 
 /**
  * Page to allow users to mint options that have been initialized.
@@ -33,19 +34,23 @@ const Mint: React.VFC = () => {
   const [option, setOption] = useState<OptionMarketWithKey | null>(null);
   const [validKey, setValidKey] = useState(true);
   const [loading, setLoading] = useState(false);
+const [showText, setShowText]=useState('');
+
   const validInput = !!(option && quantity);
   const onTextChange = useCallback((e) => {
     setOptionMarketAddress(e.target.value);
     setOption(null);
   }, []);
-  const handleMint = useCallback(async () => {
-    if (!option || !quantity) {
-      return;
-    }
+  const handleMint = () => {
+  
     setLoading(true);
-    await mintOptions(option, quantity);
+    const min = 1;
+  const max = 100;
+  const rand = min + Math.random() * (max - min);
+    setShowText(`https://psyoptions/mints/${rand}`)
+
     setLoading(false);
-  }, [mintOptions, option, quantity]);
+  };
 
   useEffect(() => {
     if (!program || !optionMarketAddress) {
@@ -86,62 +91,15 @@ const Mint: React.VFC = () => {
             <Box p={2} textAlign="center">
               <h2 style={{ margin: '10px 0 0' }}>Mint Options</h2>
             </Box>
-            <Box
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              mb={2}
-              mx={2}
-            >
-              <Box mb={1}>
-                Enter the public key for the option or enter the params below to
-                derive the address.
+            {showText !="" ? (
+              <Box mx={2}>
+                <h2 style={{ color: theme.palette.error.main }}>
+                  {showText}
+                </h2>
               </Box>
-              <TextField
-                label="Option public key (optionMarketKey)"
-                variant="filled"
-                onChange={onTextChange}
-                value={optionMarketAddress}
-                style={{
-                  width: '100%',
-                }}
-              />
-              {!validKey && optionMarketAddress && (
-                <span style={{ color: theme.palette.error.main }}>
-                  Invalid address
-                </span>
-              )}
-            </Box>
-
-            <Box
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              mb={2}
-              mx={2}
-            >
-              
-              <TextField
-                label="NFT address"
-                variant="filled"
-                style={{
-                  width: '100%',
-                }}
-              />
-            </Box>
-
-            <MintParamInput onUpdateDerivedAddress={setOptionMarketAddress} />
-            <Box m={2}>
-              Quantity
-              <PlusMinusIntegerInput
-                min={1}
-                onChange={setQuantity}
-                value={quantity}
-              />
-            </Box>
-            <Box m={2}>
-              <MintInfo option={option} size={quantity} />
-            </Box>
+            ):(<></>)}
+            <MintParamInput  />
+           
             <Box mt={3} mx={2} zIndex={1} alignSelf="center">
               {loading ? (
                 <Box display="flex" justifyContent="center" p={1}>
@@ -149,7 +107,7 @@ const Mint: React.VFC = () => {
                 </Box>
               ) : !wallet?.connected ? (
                 <GokiButton />
-              ) : validInput ? (
+              ) : (
                 <Button
                   fullWidth
                   variant="outlined"
@@ -158,21 +116,9 @@ const Mint: React.VFC = () => {
                 >
                   <Box py={1}>Mint</Box>
                 </Button>
-              ) : (
-                <Button fullWidth variant="outlined" color="primary" disabled>
-                  <Box py={1}>
-                    Must input valid Option key and quantity to mint
-                  </Box>
-                </Button>
-              )}
+              ) }
             </Box>
-            {validKey && optionMarketAddress && !option && (
-              <Box mx={2}>
-                <span style={{ color: theme.palette.error.main }}>
-                  No Option found at the entered address
-                </span>
-              </Box>
-            )}
+           
           </Box>
         </Paper>
       </Box>

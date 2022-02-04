@@ -33,6 +33,7 @@ import CreateEvents from '@/pages/CreateEvents'
 import Donation from '@/pages/donation'
 import Auction from '@/pages/donation/auction'
 import Psyoption from '@/psyoption/pages/initialize-market/init'
+import PsyoptionMint from '@/psyoption/pages/mint/mint'
 import './App.scss'
 import * as serviceWorker from "./serviceWorker";
 
@@ -70,6 +71,10 @@ export function App(): JSX.Element {
                             <Route exact path="/psyoption">
                                 <Psyoption />
                             </Route>
+                            <Route exact path="/psyoption-mint">
+                                <PsyoptionMint />
+                            </Route>
+
                             <Route path="/EVERswap">
                                 <EVERswap />
                             </Route>

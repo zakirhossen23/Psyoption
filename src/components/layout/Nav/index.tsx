@@ -26,6 +26,11 @@ export function Nav(): JSX.Element {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink to="/psyoption-mint">
+                        PsyOptions Mint
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink to="/tokens">
                         {intl.formatMessage({
                             id: 'NAV_LINK_TEXT_TOKENS',
