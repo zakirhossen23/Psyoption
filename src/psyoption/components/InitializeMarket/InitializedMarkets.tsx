@@ -26,7 +26,7 @@ export const InitializedMarkets: React.VFC = () => {
       width="100%"
       pt={0}
     >
-      <Paper style={{ width: '100%', maxWidth: '500px', alignItems: 'center' }}>
+      <Paper style={{ width: '100%', maxWidth: '632px', alignItems: 'center' }}>
         <Box
           display="flex"
           flex="1"

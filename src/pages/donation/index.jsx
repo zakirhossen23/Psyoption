@@ -64,7 +64,7 @@ export default function Donation() {
             //Terra and Ever currency
             try { 
                 var terraPrice = 0;
-                var terraCurrencyUrl = "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug=terra-luna&start=1&limit=1&category=spot&sort=cmc_rank_advanced";
+                var terraCurrencyUrl = "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug=terrausd&start=1&limit=1&category=spot&sort=cmc_rank_advanced";
                 const currency_options = {
                     method: 'GET',
                     headers: {
@@ -204,7 +204,7 @@ export default function Donation() {
                         width: '100%',
                         padding: '18px'
                     }}><h4 style={{
-                        fontSize: '2.5rem',
+                        fontSize: '2.0vw',
                         float: 'left'
                     }} name="DateCount" date={listItem.Date}>{LeftDate(listItem.Date)}</h4></div>
                     <div style={{
@@ -226,10 +226,10 @@ export default function Donation() {
                             rowGap: '10px',
                             alignContent: 'stretch'
                         }}>
-                            <h4 style={{ fontSize: '2.5rem' }}>{listItem.Title}</h4>
+                            <h4 style={{ fontSize: '1.5vw' }}>{listItem.Title}</h4>
                             <div style={{ display: "flex", "whiteSpace": "pre-wrap" }}>
-                                <h4 style={{ fontSize: '2.5rem' }}>Goal:  </h4>
-                                <h4 style={{ fontSize: '2.5rem' }}>${listItem.Goalusd} ({listItem.Goal} {listItem.wallettype})</h4>
+                                <h4 style={{ fontSize: '1.5vw' }}>Goal:  </h4>
+                                <h4 style={{ fontSize: '1.5vw' }}>${listItem.Goalusd} ({listItem.Goal} {listItem.wallettype})</h4>
                             </div>
 
                             <div style={{
@@ -251,7 +251,7 @@ export default function Donation() {
                                         textAlign: 'center',
                                         cursor: 'pointer',
                                         height: '72px',
-                                        width: '28em',
+                                        width: '244px',
                                         float: 'right',
                                         padding: '0px'
                                     }} eventid={listItem.eventId} date={listItem.Date} eventtitle={listItem.Title} className="card" wallettype={listItem.wallettype} onClick={activateCreateNFTModal}>
@@ -268,7 +268,7 @@ export default function Donation() {
                                         background: '#0BD6BE',
                                         textAlign: 'center',
                                         cursor: 'pointer',
-                                        width: '33em',
+                                        width: '273px',
                                         float: 'right',
                                         padding: '0',
                                     }} eventid={listItem.eventId} onClick={activateCreateCryptopunkModal} date={listItem.Date} eventtitle={listItem.Title} className="card" >
@@ -286,7 +286,7 @@ export default function Donation() {
                                         background: '#0BD6BE',
                                         textAlign: 'center',
                                         cursor: 'pointer',
-                                        width: '27em',
+                                        width: '244px',
                                         float: 'right',
                                         padding: '0',
                                     }} className="card" >

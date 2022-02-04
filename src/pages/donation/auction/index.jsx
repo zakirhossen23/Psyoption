@@ -70,7 +70,7 @@ export default function Auction() {
             //Terra and Ever currency
             try { 
                 
-                var terraCurrencyUrl = "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug=TerraUSD&start=1&limit=1&category=spot&sort=cmc_rank_advanced";
+                var terraCurrencyUrl = "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug=terrausd&start=1&limit=1&category=spot&sort=cmc_rank_advanced";
                 const currency_options = {
                     method: 'GET',
                     headers: {
