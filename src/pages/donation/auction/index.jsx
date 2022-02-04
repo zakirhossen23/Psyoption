@@ -140,7 +140,7 @@ export default function Auction() {
                     console.log(value.wallet);
                     setTitle(value.title);
                     setWalletType(value.wallettype);
-                    if(value.wallettype=="Terra"){
+                    if(value.wallettype=="UST"){
                         setgoalusd(formatter.format(Number(value.Goal * terraPrice)));
                     }else{
                         setgoalusd(formatter.format(Number(value.Goal * everPrice)));

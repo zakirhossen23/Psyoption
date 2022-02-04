@@ -97,7 +97,7 @@ export default function Donation() {
                 console.log(value);
                 if (value) {
                     var goalPrice2usd = 0;
-                    if(value.wallettype=="Terra"){
+                    if(value.wallettype=="UST"){
                         goalPrice2usd = Number(value.Goal * terraPrice);
                     }else{
                         goalPrice2usd = Number(value.Goal * everPrice); 

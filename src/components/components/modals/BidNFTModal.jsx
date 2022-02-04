@@ -337,7 +337,7 @@ export default function BidNFTModal({
 						{Alert}
 					</div>
 					<Form.Group className="mb-3" controlId="formGroupName">
-						<Form.Label>Bid Amount in {(walletType=="Terra")?((selectedTerra=="UST/LUNA")?"UST/LUNA":(selectedTerra=="ust")? "UST":"LUNA"):walletType}</Form.Label>
+						<Form.Label>Bid Amount in {(walletType=="UST")?((selectedTerra=="UST/LUNA")?"UST/LUNA":(selectedTerra=="ust")? "UST":"LUNA"):walletType}</Form.Label>
 						{AmountInput}
 					</Form.Group>
 					<div className='selectCategoryAll'>
