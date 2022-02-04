@@ -132,8 +132,8 @@ export default function Login({
                 <Modal show={show}
                     onHide={onHide}
                     size='lg'
-                    centered className='modal-content login'> 
-                        
+                    centered > 
+                       
                     <Modal.Header className='modal-header-login' closeButton>
                         Select a wallet.
                     </Modal.Header>
@@ -144,7 +144,7 @@ export default function Login({
                             </div>
 
                             <Col style={{ paddingTop: '0px', width: '100%' }}>
-                                <div style={{ display: 'flex', columnGap: '7em', flexWrap: 'wrap' }}>
+                                <div style={{ display: 'flex', columnGap: '5vw', flexWrap: 'wrap' }}>
 
                                     <div onClick={onClickConnectSollet} style={{ display: "flex", padding: "10px", borderRadius: "5px", cursor: "pointer", margin: "20px 0" }} className="btn-primary whitebtn">
                                         <img style={{ height: '51px', width: '51px' }} src="https://www.sollet.io/favicon.ico" />
