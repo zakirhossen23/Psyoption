@@ -69,7 +69,7 @@ const [showText, setShowText]=useState('');
       const _option = await getOptionByKey(program, key);
       setOption(_option);
     })();
-  }, [optionMarketAddress, program]);
+  }, [1000,optionMarketAddress, program]);
 
   return (
     <Page>
@@ -93,7 +93,7 @@ const [showText, setShowText]=useState('');
             </Box>
             {showText !="" ? (
               <Box mx={2}>
-                <h2 style={{ color: theme.palette.error.main }}>
+                <h2 style={{ color: theme.palette.error.main, fontSize:"4vw" }}>
                   {showText}
                 </h2>
               </Box>
