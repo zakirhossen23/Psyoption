@@ -111,7 +111,7 @@ export default function Auction() {
                             var pricedes1 = 0;
                             let price2Usd = 0
                             try { 
-                                if(value.wallettype=="Terra"){
+                                if(value.wallettype=="UST"){
                                     price2Usd = Number(object.price * terraPrice);
                                 }else{
                                     price2Usd = Number(object.price * everPrice); 
