@@ -243,20 +243,20 @@ export default function Auction() {
                         paddingTop: '70px'
                     }}>
                         <h4 style={{
-                            fontSize: '2.5rem'
+                            fontSize: '2vw'
                         }} >{title}</h4>
 
                         <div className='TextContainer'>
                             <h4 style={{
-                                fontSize: '2.5rem'
+                                fontSize: '2vw'
                             }}>Goal: </h4>
                             <h4 style={{
-                                fontSize: '2.5rem'
+                                fontSize: '2vw'
                             }}>$ {goalusd} ({goal} {walletType})</h4>
                         </div>
                         <div className='TextContainer'>
                             <h4 style={{
-                                fontSize: '2.5rem'
+                                fontSize: '2vw'
                             }} name='dateleft' date={date}>{dateleft}</h4>
                         </div>
                     </div>
@@ -291,19 +291,19 @@ export default function Auction() {
 
                         <div style={{ width: "100%" }}>
                             <div className="DetialsContainer" style={{ rowGap: "5px" }} >
-                                <h2 style={{ fontSize: '3rem' }} >{listItem.name}</h2>
+                                <h2 style={{ fontSize: '2vw' }} >{listItem.name}</h2>
 
-                                <h4 style={{ color: "rgb(139, 139, 139)", fontSize: '2rem' }}>Type: {listItem.type}</h4>
+                                <h4 style={{ color: "rgb(139, 139, 139)", fontSize: '1.7vw' }}>Type: {listItem.type}</h4>
 
                                 <div className="TextContainer">
-                                    <h4 style={{ color: "#8B8B8B", fontSize: '2rem' }}>{listItem.description}</h4>
+                                    <h4 style={{ color: "#8B8B8B", fontSize: '1.7vw' }}>{listItem.description}</h4>
                                 </div>
                             </div>
                             <div className='ElementBottomContainer'>
                                 <div style={{ width: "116px" }}>
-                                    <h3 style={{ fontSize: '1.5rem' }} className="smallgrey">Current bid</h3>
-                                    <h4 style={{ fontSize: '2.5rem' }} className='bidprice'>$ {listItem.Bidprice.toFixed(2)} ({listItem.price} {walletType})</h4>
-                                    <h7 style={{ fontSize: '1.5rem' }} name="date" date={date} className="smallgrey">{dateleftBid}</h7>
+                                    <h3 style={{ fontSize: '1vw' }} className="smallgrey">Current bid</h3>
+                                    <h4 style={{ fontSize: '1.7vw' }} className='bidprice'>$ {listItem.Bidprice.toFixed(2)} ({listItem.price} {walletType})</h4>
+                                    <h7 style={{ fontSize: '1vw' }} name="date" date={date} className="smallgrey">{dateleftBid}</h7>
                                 </div>
                                 <div className='BidAllcontainer' >
                                     <div className='Bidsbutton'>

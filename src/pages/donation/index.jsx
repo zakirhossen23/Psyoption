@@ -226,10 +226,10 @@ export default function Donation() {
                             rowGap: '10px',
                             alignContent: 'stretch'
                         }}>
-                            <h4 style={{ fontSize: '1.5vw' }}>{listItem.Title}</h4>
+                            <h4 style={{ fontSize: '1.7vw' }}>{listItem.Title}</h4>
                             <div style={{ display: "flex", "whiteSpace": "pre-wrap" }}>
-                                <h4 style={{ fontSize: '1.5vw' }}>Goal:  </h4>
-                                <h4 style={{ fontSize: '1.5vw' }}>${listItem.Goalusd} ({listItem.Goal} {listItem.wallettype})</h4>
+                                <h4 style={{ fontSize: '1.7vw' }}>Goal:  </h4>
+                                <h4 style={{ fontSize: '1.7vw' }}>${listItem.Goalusd} ({listItem.Goal} {listItem.wallettype})</h4>
                             </div>
 
                             <div style={{
