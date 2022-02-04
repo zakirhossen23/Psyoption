@@ -214,7 +214,7 @@ export default function Donation() {
                     }}>
                         <div style={{width:"33%",height: '238px'}}>
                             <img src={listItem.logo} style={{
-                                aspectRatio: '1',
+                                
                                 maxHeight: '259px'
                             }} />
                         </div>

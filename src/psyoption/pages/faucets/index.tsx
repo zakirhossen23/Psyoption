@@ -216,7 +216,7 @@ const Faucets: React.VFC = () => {
         <Paper
           style={{
             width: '100%',
-            maxWidth: '1.7vw',
+            maxWidth: '50vw',
             minHeight: '360px',
           }}
         >

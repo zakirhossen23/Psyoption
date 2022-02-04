@@ -254,7 +254,7 @@ export const InitOptionMarket: React.VFC = () => {
       <Paper
         style={{
           width: '100%',
-          maxWidth: '1.7vw',
+          maxWidth: '50vw',
         }}
       >
         <Box p={2} textAlign="center">
