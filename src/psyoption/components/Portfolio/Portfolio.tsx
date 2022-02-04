@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     flexDirection: 'column',
     height: '100%',
-    minHeight: '500px',
+    minHeight: '1.7vw',
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(4),
   },

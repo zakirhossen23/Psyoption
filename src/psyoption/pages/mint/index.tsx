@@ -84,7 +84,7 @@ const [showText, setShowText]=useState('');
         <Paper
           style={{
             width: '100%',
-            maxWidth: '500px',
+            maxWidth: '1.7vw',
           }}
         >
           <Box pb={2} display="flex" flexDirection="column">

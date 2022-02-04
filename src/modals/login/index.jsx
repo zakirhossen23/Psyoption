@@ -132,8 +132,9 @@ export default function Login({
                 <Modal show={show}
                     onHide={onHide}
                     size='lg'
-                    centered>
-                    <Modal.Header closeButton>
+                    centered className='modal-content login'> 
+                        
+                    <Modal.Header className='modal-header-login' closeButton>
                         Select a wallet.
                     </Modal.Header>
                     <div className='modal-body-login'>

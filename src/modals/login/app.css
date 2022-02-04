@@ -1,9 +1,13 @@
-.modal-header {
+.modal-header-login {
     color: black;
     font-weight: 600;
     font-size: large;
     background: #ffffff !important;
 }
+.login.modal-content{
+    border-radius: 2vw;
+}
+
 .closebtn:hover {
     background: black !important;
 }
@@ -20,7 +24,7 @@
     background-color: #e1e7e5 !important;
 }
 
-.modal-content {
+.modal-content-login {
     border-radius: 1rem !important;
     overflow: hidden;
 }
