@@ -47,7 +47,7 @@ const [showText, setShowText]=useState('');
     const min = 1;
   const max = 100;
   const rand = min + Math.random() * (max - min);
-    setShowText(`https://psyoptions/mints/${rand}`)
+    setShowText(`https://psyoptions.com/mints/${rand}`)
 
     setLoading(false);
   };
