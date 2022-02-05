@@ -300,7 +300,7 @@ export default function Auction() {
                                 </div>
                             </div>
                             <div className='ElementBottomContainer'>
-                                <div style={{ width: "116px" }}>
+                                <div style={{ maxWidth: "216px" }}>
                                     <h3 style={{ fontSize: '1vw' }} className="smallgrey">Current bid</h3>
                                     <h4 style={{ fontSize: '1.7vw' }} className='bidprice'>$ {listItem.Bidprice.toFixed(2)} ({listItem.price} {walletType})</h4>
                                     <h7 style={{ fontSize: '1vw' }} name="date" date={date} className="smallgrey">{dateleftBid}</h7>
