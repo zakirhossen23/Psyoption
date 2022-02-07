@@ -127,11 +127,8 @@ export default function BidNFTModal({
 			return;
 		}
 		
-
-		// if (connectedWallet.network.chainID.startsWith('columbus')) {
-		// 	alert(`Please only execute this example on Testnet`);
-		// 	return;
-		// }
+		console.log(connectedWallet.walletAddress);
+	
 		console.log(ToAddress);
 		if(selectedTerra=="ust"){
 			connectedWallet
@@ -147,7 +144,7 @@ export default function BidNFTModal({
 				console.log("test1");
 				console.log(`given ${Amount} highest => ${Highestbid}`)
 			}).then(async ()=>{
-				await createBid(tokenId, connectedWallet.walletAddress, Amount);
+				await createBid(tokenId, connectedWallet.walletAddress.toString(), Amount);
 			}).then(()=>{
 				window.location.reload();
 				window.document.getElementsByClassName("btn-close")[0].click();
